@@ -1,0 +1,8 @@
+Package: setup-server
+Version: 1.0
+Priority: optional
+Depends: easy-rsa, firewalld
+Architecture: all
+Maintainer: Leon Vlasov <vlatricks@vk.com>
+Description: Install server
+
