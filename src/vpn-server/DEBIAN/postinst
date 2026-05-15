@@ -1,0 +1,7 @@
+#!/bin/bash
+cp /root/vpn-easy-rsa/pki/private/vpn-server.key /etc/openvpn/server/
+chmod 600 /etc/openvpn/server/vpn-server.key
+
+systemctl daemon-reload
+systemctl enable openvpn-server@server
+systemctl start openvpn-server@server

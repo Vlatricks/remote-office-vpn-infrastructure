@@ -1,0 +1,8 @@
+Package: setup-vpn
+Version: 1.0
+Priority: optional
+Depends: openvpn, firewalld, easy-rsa
+Architecture: all
+Maintainer: Leon Vlasov <vlatricks@vk.com>
+Description: Install vpn-server
+
