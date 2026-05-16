@@ -1,7 +1,7 @@
 Package: setup-server
 Version: 1.0
 Priority: optional
-Depends: easy-rsa, firewalld
+Depends: easy-rsa, firewalld, prometheus-node-exporter
 Architecture: all
 Maintainer: Leon Vlasov <vlatricks@vk.com>
 Description: Install server

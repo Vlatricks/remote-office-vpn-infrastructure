@@ -5,3 +5,9 @@ chmod 600 /etc/openvpn/server/vpn-server.key
 systemctl daemon-reload
 systemctl enable openvpn-server@server
 systemctl start openvpn-server@server
+
+systemctl enable --now prometheus-node-exporter
+systemctl restart prometheus-node-exporter
+
+systemctl enable --now openvpn-exporter
+systemctl restart openvpn-exporter
