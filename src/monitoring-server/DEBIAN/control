@@ -1,0 +1,6 @@
+Package: monitoring-server
+Version: 1.0
+Architecture: all
+Depends: prometheus, prometheus-alertmanager
+Maintainer: Leon Vlasov <vlatricks@vk.com>
+Description: Monitoring and alerting system

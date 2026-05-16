@@ -1,0 +1,39 @@
+groups:
+- name: node_exporter_alerts
+  rules:
+  - alert: Node down
+    expr: up == 0
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      title: Node {{ $labels.instance }} is down
+      description: Failed to scrape {{ $labels.job }} on {{ $labels.instance }} for more than 2 minutes. Node seems down.
+
+
+  - alert: HostOutOfMemory
+    expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host out of memory (instance {{ $labels.instance }})
+      description: Node memory is filling up (< 10% left)\n  VALUE = {{ $value }}
+
+- name: openvpn_alerts
+  rules:
+    - alert: OpenVPNServerDown
+      expr: openvpn_up == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "OpenVPN server is down"
+
+    - alert: TooManyClients
+      expr: openvpn_server_client_count > 30
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Too many OpenVPN clients connected"

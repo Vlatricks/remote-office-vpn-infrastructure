@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$EUID" -ne 0 ]; then
+	echo "Permision denied"
+	exit 1
+fi
+
+mv /etc/prometheus/prometheus-custom.yml /etc/prometheus/prometheus.yml
+systemctl daemon-reload
+systemctl restart prometheus
+systemctl restart prometheus-alertmanager
+
